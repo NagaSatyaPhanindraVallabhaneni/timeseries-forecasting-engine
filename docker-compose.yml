@@ -1,0 +1,10 @@
+services:
+  timeseries-forecasting-engine:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persist trained model checkpoints across restarts.
+      - ./models:/app/models
+    environment:
+      - PYTHONPATH=/app/src
